@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request
 import yt_dlp
 import whisper
 import moviepy.editor as mp
@@ -7,7 +7,6 @@ import os
 import uuid
 
 app = Flask(__name__)
-
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route('/', methods=['GET', 'POST'])
@@ -41,3 +40,6 @@ def index():
         return render_template('index.html', summary=summary, video_url=short_path)
 
     return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=10000)
