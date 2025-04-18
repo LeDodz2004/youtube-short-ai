@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Générateur TikTok AI</title>
+</head>
+<body>
+    <h1>Transforme une vidéo YouTube en short TikTok</h1>
+    <form method="POST">
+        <input type="text" name="youtube_url" placeholder="Colle un lien YouTube ici" size="50" required>
+        <button type="submit">Générer</button>
+    </form>
+
+    {% if summary %}
+        <h2>Script TikTok généré :</h2>
+        <p>{{ summary }}</p>
+        <h2>Vidéo générée :</h2>
+        <video width="320" controls>
+            <source src="{{ video_url }}" type="video/mp4">
+        </video>
+        <br>
+        <a href="{{ video_url }}" download>Télécharger la vidéo</a>
+    {% endif %}
+</body>
+</html>
